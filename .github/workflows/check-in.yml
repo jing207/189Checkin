@@ -9,7 +9,7 @@ on:
     - cron: 0 2,14 * * *
 
 jobs:
-  build:
+  check-in:
     runs-on: ubuntu-latest
 
     steps:
