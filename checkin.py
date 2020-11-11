@@ -53,13 +53,13 @@ class CheckIn(object):
         if "errorCode" in response.text:
             print(response.text)
         else:
-            description = response.json()["description"]
+            description = (response.json() or {}).get("description")
             print(f"抽奖获得{description}")
         response = self.client.get(url2, headers=headers)
         if "errorCode" in response.text:
             print(response.text)
         else:
-            description = response.json()["description"]
+            description = (response.json() or {}).get("description")
             print(f"抽奖获得{description}")
 
     @staticmethod
