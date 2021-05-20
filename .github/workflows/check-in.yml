@@ -32,7 +32,7 @@ jobs:
         user_list=()
         pwd_list=()
 
-        IFS=" "
+        IFS=","
 
         for u in ${user[*]}
         do
