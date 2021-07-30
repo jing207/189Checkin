@@ -9,7 +9,8 @@ import rsa
 
 class CheckIn(object):
     client = requests.Session()
-    login_url = "https://cloud.189.cn/udb/udb_login.jsp?pageId=1&redirectURL=/main.actio"
+    login_url = "https://cloud.189.cn/api/portal/loginUrl.action?" \
+                "redirectURL=https://cloud.189.cn/web/redirect.html?returnURL=/main.action"
     submit_login_url = "https://open.e.189.cn/api/logbox/oauth2/loginSubmit.do"
     sign_url = ("https://api.cloud.189.cn/mkt/userSign.action?rand=%s"
                 "&clientType=TELEANDROID&version=8.6.3&model=SM-G930K")
@@ -21,8 +22,8 @@ class CheckIn(object):
     def check_in(self):
         self.login()
         rand = str(round(time.time() * 1000))
-        url = f"https://m.cloud.189.cn/v2/drawPrizeMarketDetails.action?taskId=TASK_SIGNIN&activityId=ACT_SIGNIN"
-        url2 = f"https://m.cloud.189.cn/v2/drawPrizeMarketDetails.action?taskId=TASK_SIGNIN_PHOTOS&activityId=ACT_SIGNIN"
+        url = "https://m.cloud.189.cn/v2/drawPrizeMarketDetails.action?taskId=TASK_SIGNIN&activityId=ACT_SIGNIN"
+        url2 = "https://m.cloud.189.cn/v2/drawPrizeMarketDetails.action?taskId=TASK_SIGNIN_PHOTOS&activityId=ACT_SIGNIN"
         headers = {
             "User-Agent": "Mozilla/5.0 (Linux; Android 5.1.1; SM-G930K Build/NRD90M; wv)"
                           " AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/74"
