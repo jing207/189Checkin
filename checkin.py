@@ -54,14 +54,14 @@ class CheckIn(object):
         if "errorCode" in response.text:
             print(response.text)
         else:
-            description = (response.json() or {}).get("description")
-            print(f"抽奖获得{description}")
+            prize_name = (response.json() or {}).get("prizeName")
+            print(f"抽奖获得{prize_name}")
         response = self.client.get(url2, headers=headers)
         if "errorCode" in response.text:
             print(response.text)
         else:
-            description = (response.json() or {}).get("description")
-            print(f"抽奖获得{description}")
+            prize_name = (response.json() or {}).get("prizeName")
+            print(f"抽奖获得{prize_name}")
 
     @staticmethod
     def rsa_encode(rsa_key, string):
